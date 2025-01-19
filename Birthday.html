@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AANU DAAAAAAAAAAAAAY!!!!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <style>
+        /* Color palette */
+        :root {
+            --light-blue: #BFECFF;
+            --light-lavender: #CDC1FF;
+            --soft-off-white: #FFF6E3;
+            --soft-pink: #FFCCEA;
+        }
+
+        body {
+            font-family: 'Sixtyfour Convergence', sans-serif;
+            text-align: center;
+            background-color: #FFF6E3;
+            color: #FFCCEA;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #FFCCEA;
+        }
+
+        #cake {
+            width: 300px;
+            height: 300px;
+            background-image: url('Part0.png');
+            background-size: cover;
+            margin: 20px auto;
+            position: relative;
+            display: none;
+        }
+
+        /* Celebration Image 1 */
+        .celebration-img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        .celebration-img1 {
+            left: 30%;
+        }
+
+        .celebration-img2 {
+            left: 62%;
+        }
+
+        /* Heart image styling */
+        .heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-size: cover;
+            display: none;
+        }
+
+        /* Hearts around celebration 1 */
+        .heart1 {
+            top: -10%;
+            left: -25%;
+        }
+
+        .heart2 {
+            top: -15%;
+            left: 20%;
+        }
+
+        .heart3 {
+            top: -25%;
+            left: 15%;
+        }
+
+        .heart4 {
+            top: -30%;
+            left: -10%;
+        }
+
+        #clickButton {
+            position: absolute;
+            display: none;
+            padding: 15px 20px; /* Make it smaller */
+            background-color: #FFCCEA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Smaller font */
+            animation: travelAcrossScreen 5s linear infinite; /* Make it move across the screen */
+        }
+
+        #clickButton:hover {
+            background-color: #CDC1FF;
+        }
+
+        button {
+            background-color: #BFECFF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #FFCCEA;
+        }
+
+        h2 {
+            color: #FFCCEA;
+        }
+
+        @keyframes celebration {
+            0% {
+                transform: translateY(-50%) translateY(0);
+            }
+            25% {
+                transform: translateY(-50%) translateY(-20px);
+            }
+            50% {
+                transform: translateY(-50%) translateY(0);
+            }
+            75% {
+                transform: translateY(-50%) translateY(-20px);
+            }
+            100% {
+                transform: translateY(-50%) translateY(0);
+            }
+        }
+
+        .animate-celebration {
+            animation: celebration 1s ease-in-out 3;
+        }
+
+        /* Fireworks Video */
+        .fireworks {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            display: none;
+        }
+
+        #fireworksCenter {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #fireworksLeft {
+            top: 20%;
+            left: 10%;
+        }
+
+        #fireworksRight {
+            top: 20%;
+            right: 10%;
+        }
+
+        /* Animation for the "Click Me" button to move across the screen */
+        @keyframes travelAcrossScreen {
+            0% {
+                top: 0;
+                left: 0;
+            }
+            25% {
+                top: 0;
+                left: 50%;
+            }
+            50% {
+                top: 50%;
+                left: 100%;
+            }
+            75% {
+                top: 100%;
+                left: 50%;
+            }
+            100% {
+                top: 100%;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting">AANU DAAAAAAAAAAAAAY!!!!</h1>
+    <button onclick="startGame()">Click to Reveal the Cake</button>
+
+    <div id="cake"></div>
+    <button id="clickButton" onclick="eatCake()">Click Me</button>
+
+    <!-- Celebration Images -->
+    <img src="aanu.jpg" alt="Celebration Image 1" id="celebration1" class="celebration-img celebration-img1">
+    <img src="Sanka.jpg" alt="Celebration Image 2" id="celebration2" class="celebration-img celebration-img2">
+
+    <!-- Heart Images around Celebration 1 -->
+    <img src="heart.png" alt="Heart" class="heart heart1">
+    <img src="heart.png" alt="Heart" class="heart heart2">
+    <img src="heart.png" alt="Heart" class="heart heart3">
+    <img src="heart.png" alt="Heart" class="heart heart4">
+
+    <!-- Fireworks Videos -->
+    <video id="fireworksCenter" class="fireworks" loop autoplay>
+        <source src="FireWork1.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    <video id="fireworksLeft" class="fireworks" loop autoplay>
+        <source src="FireWork1.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    <video id="fireworksRight" class="fireworks" loop autoplay>
+        <source src="FireWork1.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2 id="message" style="display: none;">Have the greatest year of all time this year tbh and Thank you for being the person you are(a bit late but yes)</h2>
+
+    <script>
+        let cakeParts = 8; // Number of cake pieces
+        let currentPart = 0; // Start from Part0
+
+        function startGame() {
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('cake').style.display = 'block';
+            updateCakeImage();
+            moveButton();
+        }
+
+        function updateCakeImage() {
+            const cake = document.getElementById('cake');
+            cake.style.backgroundImage = `url('Part${currentPart}.png')`;
+        }
+
+        function moveButton() {
+            const button = document.getElementById('clickButton');
+            button.style.display = 'block';
+
+            // Remove the random positioning within the cake area, as it's now traveling across the entire screen
+            button.style.position = 'absolute';
+            button.style.animation = 'travelAcrossScreen 10s linear infinite';  // Apply the animation to make it move across the screen
+        }
+
+        function eatCake() {
+            if (currentPart < cakeParts) {
+                currentPart++;
+                updateCakeImage();
+                if (currentPart < cakeParts) {
+                    moveButton();
+                } else {
+                    document.getElementById('cake').style.display = 'none';
+                    document.getElementById('clickButton').style.display = 'none';
+                    document.getElementById('message').style.display = 'block';
+                }
+            }
+
+            // Trigger the celebration animation on the images
+            const celebration1 = document.getElementById('celebration1');
+            const celebration2 = document.getElementById('celebration2');
+            const hearts = document.querySelectorAll('.heart');
+            const fireworksCenter = document.getElementById('fireworksCenter');
+            const fireworksLeft = document.getElementById('fireworksLeft');
+            const fireworksRight = document.getElementById('fireworksRight');
+
+            celebration1.style.display = 'block';
+            celebration2.style.display = 'block';
+
+            hearts.forEach(heart => {
+                heart.style.display = 'block';
+            });
+
+            fireworksCenter.style.display = 'block';
+            fireworksLeft.style.display = 'block';
+            fireworksRight.style.display = 'block';
+
+            fireworksCenter.play();  // Play the center fireworks video
+            fireworksLeft.play();  // Play the left fireworks video
+            fireworksRight.play();  // Play the right fireworks video
+
+            celebration1.classList.add('animate-celebration');
+            celebration2.classList.add('animate-celebration');
+
+            // Reset animation after it ends
+            setTimeout(() => {
+                celebration1.classList.remove('animate-celebration');
+                celebration2.classList.remove('animate-celebration');
+                hearts.forEach(heart => {
+                    heart.style.display = 'none';
+                });
+                fireworksCenter.style.display = 'none'; // Hide center fireworks after animation
+                fireworksLeft.style.display = 'none'; // Hide left fireworks after animation
+                fireworksRight.style.display = 'none'; // Hide right fireworks after animation
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
